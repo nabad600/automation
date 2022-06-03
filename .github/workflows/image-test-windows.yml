@@ -24,7 +24,9 @@ jobs:
     #     echo "y" | docker system prune -a
     #     sudo rm -rf /tmp/lara
     - name: Build the Docker image nginx, php 8.1 and laravel 9
-      run: docker-compose -f "docker-compose.yml" up -d --build
+      run: |
+        choco install docker-for-windows
+        docker-compose -f "docker-compose.yml" up -d --build
       env:
         PHP_VERSION: "8.1"
         LARAVEL_VERSION: 9
