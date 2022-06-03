@@ -10,7 +10,7 @@ on:
 
 jobs:
   Nginx-php81-laravel9-AMD64:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     # strategy:
     #   fail-fast: false
     #   matrix:
