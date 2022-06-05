@@ -27,6 +27,7 @@ jobs:
       run: |
         docker-compose -f "docker-compose.yml" up -d
       env:
+        experimental: "true"
         PHP_VERSION: "8.1"
         LARAVEL_VERSION: 9
         BACK_END: nginx
