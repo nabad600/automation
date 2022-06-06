@@ -13,6 +13,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Docker version check
+      run:  docker --version
     - name: Build the Docker image nginx, php 8.1 and laravel 9
       run: |
         docker-compose -f "docker-compose.yml" up -d
