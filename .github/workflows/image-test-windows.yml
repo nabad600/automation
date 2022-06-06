@@ -19,7 +19,7 @@ jobs:
       run:  docker-compose --version
     - name: Build the Docker image nginx, php 8.1 and laravel 9
       run: |
-        docker-compose -f "docker-compose.yml" up -d
+        docker-compose up -d
       env:
         experimental: "true"
         PHP_VERSION: "8.1"
