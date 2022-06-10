@@ -24,9 +24,11 @@ jobs:
       run: multipass version
     - name: Multipass Hostname
       run: multipass exec deck-app hostname
+    - name: Multipass Check IP
+      run: multipass info deck-app | grep IPv4 | awk '{print $2}'
     - name: Multipass docker
       run: multipass exec deck-app docker ps
     - name: Remote access docker
-      run: echo "export DOCKER_HOST=tcp://deck-app:2376" >> ~/.bashrc && source ~/.bashrc
+      run: echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
     - name: Local docker test
-      run: curl deck-app:2376
+      run: curl `multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376
