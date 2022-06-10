@@ -10,7 +10,7 @@ on:
 
 jobs:
   Nginx-php81-laravel9-AMD64:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     # strategy:
     #   fail-fast: false
     #   matrix:
@@ -23,6 +23,8 @@ jobs:
     #     docker stop $(docker ps -a -q)
     #     echo "y" | docker system prune -a
     #     sudo rm -rf /tmp/lara
-    - name: Multipass installation
-      run: curl https://raw.githubusercontent.com/nabad600/multipass-script/master/install.sh | sh
+    - name: Choosing Xcode
+      run: sudo xcode-select-switch /Applications/Xcode_13.1.app
+    - name: Xcode version
+      run:  /usr/bin/xcodebuild -version
   
