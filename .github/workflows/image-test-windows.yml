@@ -29,7 +29,7 @@ jobs:
     - name: Multipass docker
       run: multipass exec deck-app docker ps
     - name: Remote access docker
-      run: echo alias docker="multipass exec deck-app docker ps" >> ~/.bashrc && source ~/.bashrc
+      run: echo 'alias docker="multipass exec deck-app docker ps"' >> ~/.bashrc && source ~/.bashrc
     - name: Remote access docker
       run: echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
     - name: Local docker test
