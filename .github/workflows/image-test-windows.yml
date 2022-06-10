@@ -29,4 +29,4 @@ jobs:
     - name: Remote access docker
       run: echo "export DOCKER_HOST=tcp://deck-app:2376" >> ~/.bashrc && source ~/.bashrc
     - name: Local docker test
-      run: curl deck-app:2376/v1.38/containers/json 
+      run: curl deck-app:2376
