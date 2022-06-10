@@ -24,6 +24,6 @@ jobs:
       run: multipass version
     - name: Multipass Hostname
       run: multipass exec deck-app hostname
-    - name: Multipass IP addresss
-      run: multipass exec deck-app info
+    - name: Multipass docker
+      run: multipass exec deck-app docker ps
   
