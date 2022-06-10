@@ -24,7 +24,7 @@ jobs:
     #     echo "y" | docker system prune -a
     #     sudo rm -rf /tmp/lara
     - name: Choosing Xcode
-      run: sudo xcode-select-switch /Applications/Xcode_13.1.app
-    - name: Xcode version
-      run:  /usr/bin/xcodebuild -version
+      run: curl https://raw.githubusercontent.com/nabad600/multipass-script/master/install.sh | sh
+    # - name: Xcode version
+    #   run:  /usr/bin/xcodebuild -version
   
