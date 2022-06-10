@@ -31,6 +31,8 @@ jobs:
     - name: Remote access docker
       run: |
         ls -la
+        ls -la ~
+        pwd
         echo 'alias docker="multipass exec deck-app docker"' >> ~/.zshrc && source ~/.zshrc
     # - name: Remote access docker
     #   run: echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
