@@ -26,4 +26,7 @@ jobs:
       run: multipass exec deck-app hostname
     - name: Multipass docker
       run: multipass exec deck-app docker ps
-  
+    - name: Remote access docker
+      run: export DOCKER_HOST=ssh:ubuntu@deck-app
+    - name: Local docker test
+      run: docker ps
