@@ -34,5 +34,6 @@ jobs:
       run: echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
     - name: Local docker test
       run: |
-        curl `multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376
-        multipass exec deck-app sudo apt install -y docker-compose
+        git clone https://github.com/nabad600/automation.git
+        cd automation/
+        DOCKER_HOST=tcp://ubuntu@`multipass info deck-app | grep IPv4 | awk '{print $2}'`” docker-compose up -d
