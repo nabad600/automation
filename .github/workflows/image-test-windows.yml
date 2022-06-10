@@ -18,13 +18,10 @@ jobs:
     #     back: ['nginx', 'apache']
     steps:
     - uses: actions/checkout@v2
-    # - name: Deleted container 
-    #   run: |
-    #     docker stop $(docker ps -a -q)
-    #     echo "y" | docker system prune -a
-    #     sudo rm -rf /tmp/lara
     - name: Multipass Installation
       run: curl https://raw.githubusercontent.com/nabad600/multipass-script/master/install.sh | sh
     - name: Multipass version 
       run: multipass version
+    - name: Multipass 
+      run: multipass exec deck-app -- bash -c docker ps
   
