@@ -22,14 +22,16 @@ jobs:
       run: curl https://raw.githubusercontent.com/nabad600/multipass-script/master/install.sh | sh
     - name: Multipass version 
       run: multipass version
+    - name: Docker version 
+      run: multipass exec deck-app docker --version
+    - name: Docker Compose version
+      run: multipass exec deck-app docker-compose --version
     - name: Multipass Hostname
       run: multipass exec deck-app hostname
     - name: Multipass Check IP
       run: multipass info deck-app | grep IPv4 | awk '{print $2}'
     - name: Multipass docker
       run: multipass exec deck-app docker ps
-    - name: Multipass docker
-      run: multipass exec deck-app docker-compose --version
     - name: Remote access docker
       run: |
         pwd
