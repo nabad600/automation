@@ -35,4 +35,4 @@ jobs:
     - name: Local docker test
       run: |
         curl `multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376
-        multipass exec deck-app apt install docker-compose
+        multipass exec deck-app sudo apt install docker-compose
