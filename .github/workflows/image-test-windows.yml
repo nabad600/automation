@@ -29,11 +29,13 @@ jobs:
     - name: Multipass docker
       run: multipass exec deck-app docker ps
     - name: Remote access docker
-      run: echo 'alias docker="multipass exec deck-app docker"' >> ~/.zshrc && source ~/.zshrc
-    - name: Remote access docker
-      run: echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
-    - name: Local docker test
       run: |
-        git clone https://github.com/nabad600/automation.git
-        cd automation/
-        DOCKER_HOST=tcp://ubuntu@`multipass info deck-app | grep IPv4 | awk '{print $2}'`” docker-compose up -d
+        ls -la
+        echo 'alias docker="multipass exec deck-app docker"' >> ~/.zshrc && source ~/.zshrc
+    # - name: Remote access docker
+    #   run: echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
+    # - name: Local docker test
+    #   run: |
+    #     git clone https://github.com/nabad600/automation.git
+    #     cd automation/
+    #     DOCKER_HOST=tcp://ubuntu@`multipass info deck-app | grep IPv4 | awk '{print $2}'`” docker-compose up -d
