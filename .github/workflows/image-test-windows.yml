@@ -27,6 +27,6 @@ jobs:
     - name: Multipass docker
       run: multipass exec deck-app docker ps
     - name: Remote access docker
-      run: export DOCKER_HOST=ssh:ubuntu@deck-app
+      run: echo "export DOCKER_HOST=tcp://deck-app:2376" >> ~/.bashrc && source ~/.bashrc
     - name: Local docker test
-      run: docker ps
+      run: curl deck-app:2376/v1.38/containers/json 
