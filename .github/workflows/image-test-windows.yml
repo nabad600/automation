@@ -28,10 +28,10 @@ jobs:
       run: multipass info deck-app | grep IPv4 | awk '{print $2}'
     - name: Multipass docker
       run: multipass exec deck-app docker ps
+    - name: Multipass docker
+      run: multipass exec deck-app docker-compose --version
     - name: Remote access docker
       run: |
-        ls -la
-        ls -la ~
         pwd
         echo 'alias docker="multipass exec deck-app docker"' >> ~/..bashrc && source ~/.bashrc
         cat ~/.bashrc
