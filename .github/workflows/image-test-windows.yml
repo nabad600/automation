@@ -36,6 +36,3 @@ jobs:
     - name: Local docker test
       run: |
         docker ps
-        git clone https://github.com/nabad600/automation.git
-        cd automation/
-        DOCKER_HOST=tcp://ubuntu@`multipass info deck-app | grep IPv4 | awk '{print $2}'` docker-compose up -d
