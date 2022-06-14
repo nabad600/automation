@@ -31,8 +31,10 @@ jobs:
     - name: Remote access docker
       run: |
         pwd
+        echo "`multipass info deck-app | grep IPv4 | awk '{print $2}'` docker.local" | sudo tee -a /etc/hosts > /dev/null
         echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
         cat ~/.bashrc
+        cat /etc/hosts
     - name: Local docker test
       run: |
         docker ps
