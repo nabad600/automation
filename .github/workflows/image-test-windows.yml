@@ -31,9 +31,8 @@ jobs:
     - name: Remote access docker
       run: |
         pwd
-        echo 'alias docker="multipass exec deck-app docker"' >> ~/.bashrc && source ~/.bashrc
+        echo "export DOCKER_HOST=tcp://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376" >> ~/.bashrc && source ~/.bashrc
         cat ~/.bashrc
-        curl --unix-sock /var/run/docker.sock http://`multipass info deck-app | grep IPv4 | awk '{print $2}'`:2376/containers//stats
     - name: Local docker test
       run: |
         docker ps
